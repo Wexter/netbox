@@ -1324,6 +1324,9 @@ class CablePathTestCase(TestCase):
         )
         self.assertEqual(CablePath.objects.count(), 1)
 
+        # check if created cablepath is complete
+        self.assertEqual(CablePath.objects.filter(is_complete=True).count(), 1)
+
         # Delete cable 1
         cable1.delete()
         self.assertEqual(CablePath.objects.count(), 0)
